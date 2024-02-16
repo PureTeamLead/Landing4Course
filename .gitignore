@@ -1,2 +1,7 @@
 node_modules
 dist	
+.parcel-cache
+build
+public
+.vscode
+.DS_Store

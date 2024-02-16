@@ -4,7 +4,10 @@
 	"description": "landing page",
 	"main": "index.html",
 	"scripts": {
-		"sass:watch": "sass --style=expanded --watch styles:dist"
+		"source": "index.html",
+		"sass:watch": "sass --style=expanded --watch styles:dist",
+		"parcel:watch": "parcel serve --dist-dir public",
+		"parcel:build": "parcel build --dist-dir --public-url ./"
 	},
 	"repository": {
 		"type": "git"
