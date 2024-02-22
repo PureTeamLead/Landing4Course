@@ -1,0 +1,92 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders';
+@use 'sass:color';
+
+.work-section {
+	padding: 150px 20px 180px;
+
+	.work {
+		margin: 0 auto;
+		text-align: center;
+
+		&__title {
+			margin: 0 0 80px 0;
+			@include m.font(60px, 400, v.$color_white);
+
+			@media (max-width: v.$media_min) {
+				display: none;
+			}
+		}
+
+		&__cards-wrapper {
+			margin: 0 auto;
+			max-width: 950px;
+
+			display: grid;
+			grid-template-rows: repeat(2, 1fr);
+			grid-template-columns: repeat(3, 1fr);
+			row-gap: 85px;
+			// justify-items: center;
+			// align-items: center;
+			place-items: center;
+			grid-template-areas:
+				'analysis design develop'
+				'maintenance testing integration';
+
+			.card--analysis {
+				grid-area: analysis;
+				justify-self: start;
+			}
+			.card--design {
+				grid-area: design;
+				justify-self: center;
+			}
+			.card--development {
+				grid-area: develop;
+				justify-self: end;
+			}
+			.card--maintenance {
+				grid-area: maintenance;
+				justify-self: start;
+			}
+			.card--testing {
+				grid-area: testing;
+				justify-self: center;
+			}
+			.card--integration {
+				grid-area: integration;
+				justify-self: end;
+			}
+
+			@media (max-width: v.$media_md) {
+				grid-template-rows: repeat(3, 1fr);
+				grid-template-columns: repeat(2, 1fr);
+
+				grid-template-areas:
+					'analysis design'
+					'develop maintenance'
+					'testing integration';
+
+				.card--analysis {
+					justify-self: center;
+				}
+				.card--design {
+					justify-self: center;
+				}
+				.card--development {
+					justify-self: center;
+				}
+				.card--maintenance {
+					justify-self: center;
+				}
+				.card--testing {
+					justify-self: center;
+				}
+				.card--integration {
+					justify-self: center;
+				}
+			}
+		}
+	}
+}
