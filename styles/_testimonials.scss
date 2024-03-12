@@ -1,0 +1,130 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders';
+@use 'sass:color';
+
+.testimonials {
+	padding: 100px 0;
+	margin: 0 auto;
+	@include m.d-flex(start, center, nowrap, column, 0, 90px);
+	&__title {
+		@include m.font(60px, 400, v.$color_white);
+
+		@media (max-width: v.$media_md) {
+			font-size: 35px;
+		}
+	}
+
+	.slider {
+		position: relative;
+		height: 500px;
+
+		.wave-card {
+			width: 500px;
+			height: 275px;
+			@include m.d-flex(start, start, nowrap, column, 0, 20px);
+
+			&__avatar {
+				margin: 30px 0 0 30px;
+				border-radius: 50%;
+			}
+
+			&__quote {
+				@include m.font(20px, 400, v.$color_white);
+				margin: 0 70px 0 50px;
+				line-height: 1.4;
+				text-align: justify;
+			}
+
+			@media (max-width: v.$media_md) {
+				width: 330px;
+				row-gap: 15px;
+				background: url(../assets/wave-card_bg.svg) 50% 0 / contain no-repeat;
+
+				.wave-card__quote {
+					font-size: 13px;
+				}
+			}
+		}
+
+		&__left-btn {
+			@include m.position(absolute, 1, -1, top, left, 100px, -100px);
+			@extend %slider__button;
+			rotate: z 45deg;
+
+			&-icon {
+				@extend %icon_design;
+				rotate: z -45deg;
+			}
+		}
+
+		&__right-btn {
+			@extend %slider__button;
+			rotate: z 45deg;
+			@include m.position(absolute, 1, -1, top, right, 100px, -100px);
+
+			&-icon {
+				@extend %icon_design;
+				rotate: z -45deg;
+			}
+		}
+
+		&__right-btn:hover,
+		&__left-btn:hover {
+			box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.15);
+
+			.slider__left-btn-icon,
+			.slider__right-btn-icon {
+				fill: v.$color_black;
+			}
+		}
+
+		&__points {
+			@include m.position(absolute, 1, -1, bottom, left, 0, 50%);
+			@include m.d-flex(start, center, nowrap, row, 9px, 0);
+			translate: -50% 0;
+
+			&-item {
+				width: 13px;
+				height: 13px;
+				border-radius: 50%;
+				background-color: v.$color_white;
+				cursor: pointer;
+
+				&:hover {
+					scale: 0.7;
+					background-color: v.$color_grey;
+				}
+			}
+		}
+
+		@media (max-width: v.$media_md) {
+			height: 300px;
+
+			&__left-btn {
+				top: unset;
+				bottom: 20px;
+				left: 0;
+			}
+			&__right-btn {
+				top: unset;
+				bottom: 20px;
+				right: 0;
+			}
+
+			&__points {
+				@include m.position(absolute, 1, -1, bottom, left, 0, 50%);
+				bottom: 45px;
+			}
+		}
+
+		@media (max-width: v.$media_min) {
+			&__left-btn {
+				left: 10px;
+			}
+			&__right-btn {
+				right: 10px;
+			}
+		}
+	}
+}
