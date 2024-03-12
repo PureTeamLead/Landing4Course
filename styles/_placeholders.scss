@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'sass:color';
 
 %hover-black {
 	&:hover {
@@ -19,4 +20,22 @@
 		cursor: pointer;
 		color: v.$color_white;
 	}
+}
+
+%slider__button {
+	width: 67px;
+	height: 67px;
+	border: none;
+	border-radius: 20px;
+	background-color: color.adjust(v.$color_white, $alpha: -0.85);
+	cursor: pointer;
+}
+
+%icon_design {
+	width: 36px;
+	position: relative;
+	top: 22px;
+	left: 15px;
+	height: 23px;
+	fill: v.$color_white;
 }
