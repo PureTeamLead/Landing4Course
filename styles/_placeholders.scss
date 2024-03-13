@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 @use 'sass:color';
 
 %hover-black {
@@ -38,4 +39,19 @@
 	left: 15px;
 	height: 23px;
 	fill: v.$color_white;
+}
+
+%form_input {
+	border-radius: 20px;
+	width: 100%;
+	border: 1px solid v.$border_button;
+	height: 50px;
+	padding: 8px 20px;
+	@include m.font(25px, 400, v.$color_black);
+	line-height: 30px;
+
+	&::placeholder {
+		@include m.font(25px, 100, v.$border_button);
+		font-family: Roboto;
+	}
 }

@@ -1,0 +1,81 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'sass:color';
+@use 'placeholders';
+
+.form-section {
+	padding: 180px 15px;
+	position: relative;
+	overflow: hidden;
+
+	.cloud--left {
+		width: 290px;
+		height: 200px;
+		background: url(../assets/images/left\ cloud.webp) center/contain no-repeat;
+		@include m.position(absolute, 1, -1, top, left, 0, 0);
+	}
+
+	.cloud--right {
+		width: 190px;
+		height: 200px;
+		background: url(../assets/images/right\ cloud.webp) center/contain no-repeat;
+		@include m.position(absolute, 1, -1, bottom, right, 0, 0);
+	}
+
+	&__wrapper {
+		height: 360px;
+		margin: 0 auto;
+		@include m.d-flex(center, center, nowrap, row, 0, 0);
+		width: 100%;
+
+		.form {
+			width: min(625px, 100%);
+			@include m.d-flex(center, center, nowrap, column, 0, 23px);
+
+			&__title {
+				@include m.font(36px, 400, v.$color_black);
+				margin: 0 0 15px 0;
+			}
+
+			&__name,
+			&__email,
+			&__text {
+				@extend %form_input;
+			}
+
+			&__submit-btn {
+				background-color: v.$color_black;
+				width: 100%;
+				border-radius: 20px;
+				@include m.font(25px, 500, v.$color_white);
+				border: none;
+				cursor: pointer;
+				height: 50px;
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+
+			@media (max-width: v.$media_xl) {
+				padding: 220px 15px 240px 15px;
+			}
+
+			@media (max-width: v.$media_md) {
+				&__title {
+					@include m.font(32px, 400, v.$color_black);
+				}
+
+				&__name,
+				&__email,
+				&__text {
+					@include m.font(18px, 400, v.$color_black);
+
+					&::placeholder {
+						@include m.font(18px, 100, v.$border_button);
+					}
+				}
+			}
+		}
+	}
+}
