@@ -30,11 +30,6 @@ li {
   list-style: none;
 }
 
-svg {
-  width: 100%;
-  height: 100%;
-}
-
 use {
   width: 100%;
   height: 100%;
@@ -62,7 +57,8 @@ hr {
   margin: 0;
 }
 
-.header .nav__title-link:hover, .header .nav__links .list__item .list__item-link:hover, .header .nav .covid__link:hover {
+.contacts-section .footer__text .text__links .text__links-terms:hover,
+.contacts-section .footer__text .text__links .text__links-privacy:hover, .header .nav__title-link:hover, .header .nav__links .list__item .list__item-link:hover, .header .nav .covid__link:hover {
   cursor: pointer;
   color: #000;
 }
@@ -1203,6 +1199,78 @@ hr {
     font-weight: 100;
     font-style: normal;
     color: rgba(0, 0, 0, 0.5019607843);
+  }
+}
+
+.contacts-section {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.contacts-section .footer {
+  width: 100%;
+  height: 135px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  column-gap: 0;
+  row-gap: 0;
+}
+.contacts-section .footer__text .text__links {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  column-gap: 35px;
+  row-gap: 0;
+  margin: 0 0 5px 0;
+}
+.contacts-section .footer__text .text__links .text__links-terms,
+.contacts-section .footer__text .text__links .text__links-privacy {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+  line-height: 30px;
+}
+.contacts-section .footer__text .text__rights {
+  font-size: 14px;
+  font-weight: 300;
+  font-style: normal;
+  color: #fff;
+  line-height: 25px;
+}
+.contacts-section .footer__socials {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  column-gap: 45px;
+  row-gap: 0;
+}
+.contacts-section .footer__socials-link .socials__icon {
+  width: 25px;
+  height: 25px;
+  fill: #fff;
+}
+.contacts-section .footer__socials-link .socials__icon:hover {
+  fill: #000;
+  cursor: pointer;
+}
+@media (max-width: 576px) {
+  .contacts-section .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+    column-gap: 0;
+    row-gap: 20px;
   }
 }
 

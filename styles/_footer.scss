@@ -1,0 +1,58 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'placeholders';
+@use 'sass:color';
+
+.contacts-section {
+	background-color: color.adjust(v.$color_white, $alpha: -0.85);
+	box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.15);
+
+	.footer {
+		width: 100%;
+		height: 135px;
+		margin: 0 auto;
+		padding: 0 15px;
+		@include m.d-flex(space-between, center, nowrap, row, 0, 0);
+
+		&__text {
+			.text__links {
+				@include m.d-flex(start, center, nowrap, row, 35px, 0);
+				margin: 0 0 5px 0;
+
+				.text__links-terms,
+				.text__links-privacy {
+					@include m.font(20px, 400, v.$color_white);
+					line-height: 30px;
+
+					@extend %hover-black;
+				}
+			}
+
+			.text__rights {
+				@include m.font(14px, 300, v.$color_white);
+				line-height: 25px;
+			}
+		}
+
+		&__socials {
+			@include m.d-flex(start, center, nowrap, row, 45px, 0);
+
+			&-link {
+				.socials__icon {
+					width: 25px;
+					height: 25px;
+					fill: v.$color_white;
+
+					&:hover {
+						fill: v.$color_black;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		@media (max-width: v.$media_sm) {
+			@include m.d-flex(center, center, nowrap, column-reverse, 0, 20px);
+		}
+	}
+}
