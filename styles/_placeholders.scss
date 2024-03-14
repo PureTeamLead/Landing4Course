@@ -16,6 +16,13 @@
 	}
 }
 
+%hover-black-icon-stroke {
+	&:hover {
+		cursor: pointer;
+		stroke: v.$color_black;
+	}
+}
+
 %hover-light {
 	&:hover {
 		cursor: pointer;
